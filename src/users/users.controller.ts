@@ -16,7 +16,7 @@ import { UsersDTO } from './users.dto';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @Get()
+  @Get('/all')
   async showAllUsers() {
     return {
       statusCode: HttpStatus.OK,
@@ -27,7 +27,7 @@ export class UsersController {
   @Post()
   async createUsers(@Body() data: UsersDTO) {
     return {
-      statusCode: HttpStatus.OK,
+      statusCode: HttpStatus.CREATED,
       message: 'User added successfully',
       data: await this.usersService.create(data),
     };
@@ -38,6 +38,13 @@ export class UsersController {
     return {
       statusCode: HttpStatus.OK,
       data: await this.usersService.read(id),
+    };
+  }
+  @Get('/:id/info')
+  async readUserInfo(@Param('id') id: number) {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.usersService.getUserPhotos(id),
     };
   }
 

@@ -3,8 +3,8 @@
   "host": "localhost",
   "port": "3306",
   "username": "master",
-  "password": "master94",
-  "database": "nestjs_mysql_crud_app",
+  "password": "master2020",
+  "database": "testing_nest",
   "synchronize": true,
   "logging": true,
   "entities": ["dist/**/*.entity.js"]

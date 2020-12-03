@@ -2,18 +2,19 @@ import { Injectable, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { UsersEntity } from './users.entity';
+import { User } from './users.entity';
 import { UsersDTO } from './users.dto';
+import { Photo } from '../photos/photo.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UsersEntity)
-    private usersRepository: Repository<UsersEntity>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
   ) {}
 
   async showAll() {
-    return await this.usersRepository.find();
+    return await this.usersRepository.find({ relations: ['photosos'] });
   }
 
   async create(data: UsersDTO) {
@@ -22,13 +23,13 @@ export class UsersService {
     return user;
   }
 
-  async findByEmail(email: string): Promise<UsersDTO> {
-    return await this.usersRepository.findOne({
-      where: {
-        email: email,
-      },
-    });
-  }
+  // async findByEmail(email: string): Promise<UsersDTO> {
+  //   return await this.usersRepository.findOne({
+  //     where: {
+  //       email: email,
+  //     },
+  //   });
+  // }
 
   async read(id: number) {
     return await this.usersRepository.findOne({ where: { id: id } });
@@ -42,5 +43,15 @@ export class UsersService {
   async destroy(id: number) {
     await this.usersRepository.delete({ id });
     return { deleted: true };
+  }
+
+  async getUserPhotos(id: number) {
+    // console.log(typeof(id));
+    // const user: User = await Photo.findOne({where: {id: id}, relations: ['photo']});
+    // return user.photos;
+    const userPhotos = await this.usersRepository.findOne(id, {
+      relations: ['photosos'],
+    });
+    return userPhotos;
   }
 }
