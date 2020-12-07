@@ -6,6 +6,7 @@ import {
   HttpStatus,
   Param,
   Post,
+  Put,
 } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CategotyDto } from './categotyDto';
@@ -53,6 +54,18 @@ export class CategoryController {
       statusCode: HttpStatus.OK,
       message: 'Successfully deleted',
       data: await this.categoryService.delete(params.id),
+    };
+  }
+
+  @Put(':id')
+  async updatePhoto(
+    @Param('id') id: number,
+    @Body() data: Partial<CategotyDto>,
+  ) {
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'Category update successfully',
+      data: await this.categoryService.update(id, data),
     };
   }
 }

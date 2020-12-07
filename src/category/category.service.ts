@@ -37,4 +37,9 @@ export class CategoryService {
   async delete(id: string) {
     return await this.categoryRepository.delete(id);
   }
+
+  async update(id: number, data: Partial<CategotyDto>) {
+    await this.categoryRepository.update({ id }, data);
+    return await this.categoryRepository.findOne({ id });
+  }
 }

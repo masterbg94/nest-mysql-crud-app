@@ -20,7 +20,13 @@ export class ItemService {
     await this.itemRepository.save(data);
     return item;
   }
+
   async delete(id: string) {
     return await this.itemRepository.delete(id);
+  }
+
+  async update(id: number, data: Partial<ItemDto>) {
+    await this.itemRepository.update({ id }, data);
+    return await this.itemRepository.findOne({ id });
   }
 }

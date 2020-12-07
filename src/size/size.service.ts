@@ -28,4 +28,9 @@ export class SizeService {
   async delete(id: string) {
     return await this.sizeRepository.delete(id);
   }
+
+  async update(id: number, data: Partial<SizeDto>) {
+    await this.sizeRepository.update({ id }, data);
+    return await this.sizeRepository.findOne({ id });
+  }
 }

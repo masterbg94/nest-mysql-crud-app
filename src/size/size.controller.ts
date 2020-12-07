@@ -5,7 +5,7 @@ import {
   Get,
   HttpStatus,
   Param,
-  Post,
+  Post, Put,
 } from '@nestjs/common';
 import { SizeService } from './size.service';
 import { SizeDto } from './sizeDto';
@@ -45,6 +45,18 @@ export class SizeController {
       statusCode: HttpStatus.OK,
       message: 'Successfully deleted',
       data: await this.sizeService.delete(params.id),
+    };
+  }
+
+  @Put(':id')
+  async updatePhoto(
+    @Param('id') id: number,
+    @Body() data: Partial<SizeDto>,
+  ) {
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'Category update successfully',
+      data: await this.sizeService.update(id, data),
     };
   }
 }

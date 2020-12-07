@@ -6,6 +6,7 @@ import {
   HttpStatus,
   Param,
   Post,
+  Put,
 } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { ItemDto } from './itemDto';
@@ -37,6 +38,15 @@ export class ItemController {
       statusCode: HttpStatus.OK,
       message: 'Successfully deleted',
       data: await this.itemService.delete(params.id),
+    };
+  }
+
+  @Put(':id')
+  async updatePhoto(@Param('id') id: number, @Body() data: Partial<ItemDto>) {
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'Category update successfully',
+      data: await this.itemService.update(id, data),
     };
   }
 }

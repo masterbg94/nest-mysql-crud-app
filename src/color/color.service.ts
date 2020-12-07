@@ -24,4 +24,9 @@ export class ColorService {
   async delete(id: string) {
     return await this.colorRepository.delete(id);
   }
+
+  async update(id: number, data: Partial<ColorDto>) {
+    await this.colorRepository.update({ id }, data);
+    return await this.colorRepository.findOne({ id });
+  }
 }
