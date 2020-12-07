@@ -20,4 +20,8 @@ export class ColorService {
     await this.colorRepository.save(data);
     return color;
   }
+
+  async delete(id: string) {
+    return await this.colorRepository.delete(id);
+  }
 }

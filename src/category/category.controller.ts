@@ -47,7 +47,7 @@ export class CategoryController {
     };
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   async delete(@Param() params) {
     return {
       statusCode: HttpStatus.OK,

@@ -1,4 +1,12 @@
-import { Body, Controller, Get, HttpStatus, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpStatus,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { ItemService } from './item.service';
 import { ItemDto } from './itemDto';
 
@@ -20,6 +28,15 @@ export class ItemController {
       statusCode: HttpStatus.CREATED,
       message: 'Item added successfully',
       data: await this.itemService.create(data),
+    };
+  }
+
+  @Delete(':id')
+  async delete(@Param() params) {
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'Successfully deleted',
+      data: await this.itemService.delete(params.id),
     };
   }
 }

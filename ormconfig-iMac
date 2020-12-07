@@ -1,0 +1,11 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": "3306",
+  "username": "master",
+  "password": "Master2020",
+  "database": "testing_nest",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["dist/**/*.entity.js"]
+}

@@ -12,12 +12,15 @@ export class ItemService {
   ) {}
 
   async getAllItems() {
-    return await this.itemRepository.find({ relations: ['color'] });
+    return await this.itemRepository.find({ relations: ['colors'] });
   }
 
   async create(data: ItemDto) {
     const item = this.itemRepository.create(data);
     await this.itemRepository.save(data);
     return item;
+  }
+  async delete(id: string) {
+    return await this.itemRepository.delete(id);
   }
 }

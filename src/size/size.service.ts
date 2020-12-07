@@ -24,4 +24,8 @@ export class SizeService {
     await this.sizeRepository.save(data);
     return size;
   }
+
+  async delete(id: string) {
+    return await this.sizeRepository.delete(id);
+  }
 }
