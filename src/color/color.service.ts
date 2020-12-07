@@ -12,7 +12,7 @@ export class ColorService {
   ) {}
 
   async getAllColors() {
-    return await this.colorRepository.find();
+    return await this.colorRepository.find({ relations: ['sizes'] });
   }
 
   async create(data: ColorDto) {

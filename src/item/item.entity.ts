@@ -23,7 +23,7 @@ export class ItemEntity {
   price: number;
 
   @OneToMany(() => ColorEntity, (color) => color.item)
-  color: ColorEntity[];
+  colors: ColorEntity[];
 
   @ManyToOne(() => CategoryEntity, (category) => category.items)
   category: CategoryEntity;

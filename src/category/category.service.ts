@@ -23,7 +23,7 @@ export class CategoryService {
     const getWithDetails = await this.categoryRepository
       .createQueryBuilder('category')
       .innerJoinAndSelect('category.items', 'item')
-      .innerJoinAndSelect('item.color', 'color')
+      .innerJoinAndSelect('item.colors', 'color')
       .getMany();
     return getWithDetails;
   }

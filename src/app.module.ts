@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoryModule } from './category/category.module';
 import { ItemModule } from './item/item.module';
 import { ColorModule } from './color/color.module';
+import { SizeModule } from './size/size.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { ColorModule } from './color/color.module';
     CategoryModule,
     ItemModule,
     ColorModule,
+    SizeModule
   ],
   controllers: [AppController],
   providers: [AppService],
