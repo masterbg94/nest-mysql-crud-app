@@ -33,4 +33,8 @@ export class CategoryService {
     await this.categoryRepository.save(data);
     return category;
   }
+
+  async delete(id: string) {
+    return await this.categoryRepository.delete(id);
+  }
 }
