@@ -19,6 +19,9 @@ export class ColorEntity {
   @Column()
   status: string;
 
+  @Column()
+  image: string;
+
   @ManyToOne(() => ItemEntity, (item) => item.colors)
   item: ItemEntity;
   //

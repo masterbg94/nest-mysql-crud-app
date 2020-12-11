@@ -1,10 +1,10 @@
 {
   "type": "mysql",
-  "host": "eu-cdbr-west-03.cleardb.net",
+  "host": "localhost",
   "port": "3306",
-  "username": "b1f868569cef44",
-  "password": "5ad9a351",
-  "database": "heroku_b2e4dd729519edf",
+  "username": "master",
+  "password": "Master2020",
+  "database": "testing_nest",
   "synchronize": true,
   "logging": true,
   "entities": ["dist/**/*.entity.js"]

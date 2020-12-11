@@ -23,6 +23,14 @@ export class ItemController {
     };
   }
 
+  @Get(':id')
+  async showProductWithId(@Param() params) {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.itemService.getWithId(params.id),
+    };
+  }
+
   @Post()
   async create(@Body() data: ItemDto) {
     return {

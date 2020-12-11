@@ -15,6 +15,10 @@ export class ItemService {
     return await this.itemRepository.find({ relations: ['colors'] });
   }
 
+  async getWithId(id) {
+    return await this.itemRepository.findOne(id, { relations: ['colors'] });
+  }
+
   async create(data: ItemDto) {
     const item = this.itemRepository.create(data);
     await this.itemRepository.save(data);
