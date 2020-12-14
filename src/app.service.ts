@@ -12,12 +12,12 @@ export class AppService {
   async example(data) {
     await this.mailerService
       .sendMail({
-        to: data.to, // List of receivers email address
-        from: data.from, // Senders email address
-        subject: 'Porudzbina ✔', // Subject line
-        text: data.text, // plaintext body
+        to: 'nmilinkovic3@gmail.com', // List of receivers email address
+        from: data.email, // Senders email address
+        subject: data.subject, // Subject line
+        text: data.message, // plaintext body
         html: '<h1>Nova Porudzbina :</h1>' +
-          '<br><b>' + data.text + '</b>', // HTML body content
+          '<br><b>' + data.name + '</b>', // HTML body content
       })
       .then((success) => {
         console.log(success);
