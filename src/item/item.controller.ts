@@ -31,6 +31,14 @@ export class ItemController {
     };
   }
 
+  @Get('/details')
+  async showItemsDetailed() {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.itemService.getAllWithDetails(),
+    };
+  }
+
   @Post()
   async create(@Body() data: ItemDto) {
     return {

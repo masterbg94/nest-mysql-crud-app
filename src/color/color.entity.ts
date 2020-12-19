@@ -28,6 +28,8 @@ export class ColorEntity {
   @ManyToOne(() => ItemEntity, (item) => item.colors)
   item: ItemEntity;
   //
-  @OneToMany(() => SizeEntity, (size) => size.color)
+  @OneToMany(() => SizeEntity, (size) => size.color, {
+    cascade: ['remove'],
+  })
   sizes: SizeEntity[];
 }

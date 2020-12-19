@@ -5,7 +5,8 @@ import {
   Get,
   HttpStatus,
   Param,
-  Post, Put,
+  Post,
+  Put,
 } from '@nestjs/common';
 import { ColorService } from './color.service';
 import { ColorDto } from './colorDto';
@@ -31,7 +32,7 @@ export class ColorController {
     };
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   async delete(@Param() params) {
     return {
       statusCode: HttpStatus.OK,
@@ -40,11 +41,8 @@ export class ColorController {
     };
   }
 
-  @Put(':id')
-  async updatePhoto(
-    @Param('id') id: number,
-    @Body() data: Partial<ColorDto>,
-  ) {
+  @Put('/:id')
+  async updatePhoto(@Param('id') id: number, @Body() data: Partial<ColorDto>) {
     return {
       statusCode: HttpStatus.OK,
       message: 'Category update successfully',

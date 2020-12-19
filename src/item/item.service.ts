@@ -12,11 +12,24 @@ export class ItemService {
   ) {}
 
   async getAllItems() {
-    return await this.itemRepository.find({ relations: ['colors'] });
+    return await this.itemRepository.find({
+      relations: ['colors', 'colors.sizes'],
+    });
   }
 
   async getWithId(id) {
-    return await this.itemRepository.findOne(id, { relations: ['colors'] });
+    return await this.itemRepository.findOne(id, {
+      relations: ['colors', 'colors.sizes'],
+    });
+  }
+
+  async getAllWithDetails() {
+    const itemsWithDetails = await this.itemRepository
+      .createQueryBuilder('items')
+      .innerJoinAndSelect('items.colors', 'colors')
+      .innerJoinAndSelect('color.sizes', 'sizes')
+      .getMany();
+    return itemsWithDetails;
   }
 
   async create(data: ItemDto) {
