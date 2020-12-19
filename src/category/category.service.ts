@@ -24,6 +24,7 @@ export class CategoryService {
       .createQueryBuilder('category')
       .innerJoinAndSelect('category.items', 'item')
       .innerJoinAndSelect('item.colors', 'color')
+      .innerJoinAndSelect('color.sizes', 'size')
       .getMany();
     return getWithDetails;
   }

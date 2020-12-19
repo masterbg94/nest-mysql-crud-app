@@ -22,6 +22,9 @@ export class ColorEntity {
   @Column()
   image: string;
 
+  @Column()
+  hex: string;
+
   @ManyToOne(() => ItemEntity, (item) => item.colors)
   item: ItemEntity;
   //

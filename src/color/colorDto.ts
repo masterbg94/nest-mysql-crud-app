@@ -4,4 +4,5 @@ export interface ColorDto {
   status: string;
   image: string;
   item: any;
+  hex: string;
 }
