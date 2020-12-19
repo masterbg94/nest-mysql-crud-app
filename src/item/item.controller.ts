@@ -13,7 +13,8 @@ import { ItemDto } from './itemDto';
 
 @Controller('item')
 export class ItemController {
-  constructor(private itemService: ItemService) {}
+  constructor(private itemService: ItemService) {
+  }
 
   @Get()
   async showAll() {
@@ -23,8 +24,8 @@ export class ItemController {
     };
   }
 
-  @Get(':id')
-  async showProductWithId(@Param() params) {
+  @Get('/:id')
+  async showItemWithId(@Param() params) {
     return {
       statusCode: HttpStatus.OK,
       data: await this.itemService.getWithId(params.id),
@@ -40,7 +41,7 @@ export class ItemController {
   }
 
   @Post()
-  async create(@Body() data: ItemDto) {
+  async createItem(@Body() data: ItemDto) {
     return {
       statusCode: HttpStatus.CREATED,
       message: 'Item added successfully',
@@ -49,7 +50,7 @@ export class ItemController {
   }
 
   @Delete(':id')
-  async delete(@Param() params) {
+  async deleteItem(@Param() params) {
     return {
       statusCode: HttpStatus.OK,
       message: 'Successfully deleted',
@@ -58,7 +59,7 @@ export class ItemController {
   }
 
   @Put(':id')
-  async updatePhoto(@Param('id') id: number, @Body() data: Partial<ItemDto>) {
+  async updateItem(@Param('id') id: number, @Body() data: Partial<ItemDto>) {
     return {
       statusCode: HttpStatus.OK,
       message: 'Category update successfully',

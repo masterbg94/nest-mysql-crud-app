@@ -22,11 +22,25 @@ export class SizeController {
     };
   }
 
-  @Get()
-  async getAllForId() {
+  @Get(':id')
+  async getSizeWithId(@Param() params) {
     return {
       statusCode: HttpStatus.OK,
-      data: await this.sizeService.getAllItems(),
+      data: await this.sizeService.getAllItemsForId(params.id),
+    };
+  }
+
+  @Put('/decrement/:id')
+  async decrementSizeCount(
+    @Param('id') id: number,
+    @Body() data: Partial<SizeDto>,
+  ) {
+    const sizeCount = await this.sizeService.getAllItemsForId(id);
+    data.sizeCount = sizeCount.sizeCount - 1;
+    return {
+      statusCode: HttpStatus.CREATED,
+      message: 'Size decremented successfully',
+      data: await this.sizeService.update(id, data),
     };
   }
 
@@ -55,7 +69,7 @@ export class SizeController {
   ) {
     return {
       statusCode: HttpStatus.OK,
-      message: 'Category update successfully',
+      message: 'Size update successfully',
       data: await this.sizeService.update(id, data),
     };
   }
