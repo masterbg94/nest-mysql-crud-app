@@ -25,11 +25,9 @@ export class ColorEntity {
   @Column()
   hex: string;
 
-  @ManyToOne(() => ItemEntity, (item) => item.colors)
+  @ManyToOne(() => ItemEntity, (item) => item.colors, { onDelete: 'CASCADE' })
   item: ItemEntity;
   //
-  @OneToMany(() => SizeEntity, (size) => size.color, {
-    cascade: ['remove'],
-  })
+  @OneToMany(() => SizeEntity, (size) => size.color)
   sizes: SizeEntity[];
 }

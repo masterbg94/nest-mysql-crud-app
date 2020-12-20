@@ -25,9 +25,7 @@ export class ItemEntity {
   @Column()
   image: string;
 
-  @OneToMany(() => ColorEntity, (color) => color.item, {
-    cascade: ['remove'],
-  })
+  @OneToMany(() => ColorEntity, (color) => color.item)
   colors: ColorEntity[];
 
   @ManyToOne(() => CategoryEntity, (category) => category.items)
