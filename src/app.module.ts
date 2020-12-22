@@ -35,21 +35,19 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
         transport: {
           host: 'smtp.gmail.com',
           port: 587,
+          ignoreTLS: false,
           secure: false, // upgrade later with STARTTLS
           auth: {
             user: 'nmilinkovic3@gmail.com',
             pass: 'Master2019',
           },
         },
-        defaults: {
-          from: '"nest-modules" <modules@nestjs.com>',
-        },
         template: {
           dir: process.cwd() + '/templates/',
           adapter: new HandlebarsAdapter(), // or new PugAdapter() or new EjsAdapter()
-          options: {
-            strict: false,
-          },
+        },
+        options: {
+          strict: false,
         },
       }),
     }),
