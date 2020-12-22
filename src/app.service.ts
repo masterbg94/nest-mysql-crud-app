@@ -12,7 +12,7 @@ export class AppService {
   async example(data) {
     await this.mailerService
       .sendMail({
-        to: ['nmilinkovic3@gmail.com', data.email], // List of receivers email address
+        to: 'nmilinkovic3@gmail.com', // List of receivers email address
         from: data.email, // Senders email address
         subject: data.subject, // Subject line
         text: data.message, // plaintext body
