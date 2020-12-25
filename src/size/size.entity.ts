@@ -1,5 +1,12 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ColorEntity } from '../color/color.entity';
+import { HeelEntity } from '../heel/heel.entity';
 
 @Entity('sizes')
 export class SizeEntity {
@@ -14,4 +21,7 @@ export class SizeEntity {
 
   @ManyToOne(() => ColorEntity, (color) => color.sizes, { onDelete: 'CASCADE' })
   color: ColorEntity;
+
+  @OneToMany(() => HeelEntity, (heel) => heel.size)
+  heel: HeelEntity[];
 }

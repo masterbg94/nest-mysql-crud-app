@@ -4,9 +4,10 @@ import { SizeService } from './size.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SizeEntity } from './size.entity';
 import { ColorEntity } from '../color/color.entity';
+import { HeelEntity } from '../heel/heel.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([SizeEntity, ColorEntity])],
+  imports: [TypeOrmModule.forFeature([SizeEntity, ColorEntity, HeelEntity])],
   providers: [SizeService],
   controllers: [SizeController],
 })

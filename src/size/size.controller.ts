@@ -5,7 +5,8 @@ import {
   Get,
   HttpStatus,
   Param,
-  Post, Put,
+  Post,
+  Put,
 } from '@nestjs/common';
 import { SizeService } from './size.service';
 import { SizeDto } from './sizeDto';
@@ -63,10 +64,7 @@ export class SizeController {
   }
 
   @Put(':id')
-  async updatePhoto(
-    @Param('id') id: number,
-    @Body() data: Partial<SizeDto>,
-  ) {
+  async updatePhoto(@Param('id') id: number, @Body() data: Partial<SizeDto>) {
     return {
       statusCode: HttpStatus.OK,
       message: 'Size update successfully',

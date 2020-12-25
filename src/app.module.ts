@@ -9,6 +9,7 @@ import { SizeModule } from './size/size.module';
 
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { HeelModule } from './heel/heel.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
     ItemModule,
     ColorModule,
     SizeModule,
+    HeelModule,
     // MailerModule.forRoot({
     //   transport: 'smtps://user@domain.com:pass@smtp.domain.com',
     //   defaults: {
