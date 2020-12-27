@@ -29,6 +29,10 @@ export class CategoryService {
     return getWithDetails;
   }
 
+  async getHeelForId(categoryId) {
+    return await this.categoryRepository.findOne(categoryId);
+  }
+
   async createCategory(data: CategotyDto) {
     const category = this.categoryRepository.create(data);
     await this.categoryRepository.save(data);

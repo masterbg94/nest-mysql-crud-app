@@ -15,6 +15,10 @@ export class ColorService {
     return await this.colorRepository.find({ relations: ['sizes'] });
   }
 
+  async getColorForId(categoryId) {
+    return await this.colorRepository.findOne(categoryId);
+  }
+
   async create(data: ColorDto) {
     const color = this.colorRepository.create(data);
     await this.colorRepository.save(data);

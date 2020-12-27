@@ -15,7 +15,7 @@ export class HeelService {
     return await this.heelRepository.find();
   }
 
-  async getAllItemsForId(heelId) {
+  async getHeelForId(heelId) {
     return await this.heelRepository.findOne(heelId);
   }
 

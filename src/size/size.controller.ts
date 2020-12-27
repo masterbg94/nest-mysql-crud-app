@@ -31,7 +31,7 @@ export class SizeController {
     };
   }
 
-  @Put('/decrement/:id')
+  @Get('/decrement/:id')
   async decrementSizeCount(
     @Param('id') id: number,
     @Body() data: Partial<SizeDto>,

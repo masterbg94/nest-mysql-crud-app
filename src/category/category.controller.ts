@@ -39,6 +39,14 @@ export class CategoryController {
     };
   }
 
+  @Get(':id')
+  async getCategoryWithId(@Param() params) {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.categoryService.getHeelForId(params.id),
+    };
+  }
+
   @Post()
   async create(@Body() data: CategotyDto) {
     return {

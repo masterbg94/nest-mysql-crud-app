@@ -24,10 +24,10 @@ export class HeelController {
   }
 
   @Get(':id')
-  async getSizeWithId(@Param() params) {
+  async getHeelWithId(@Param() params) {
     return {
       statusCode: HttpStatus.OK,
-      data: await this.heelService.getAllItemsForId(params.id),
+      data: await this.heelService.getHeelForId(params.id),
     };
   }
 
@@ -36,7 +36,7 @@ export class HeelController {
     @Param('id') id: number,
     @Body() data: Partial<HeelDto>,
   ) {
-    const h = await this.heelService.getAllItemsForId(id);
+    const h = await this.heelService.getHeelForId(id);
     data.heelCount = h.heelCount - 1;
     return {
       statusCode: HttpStatus.CREATED,
