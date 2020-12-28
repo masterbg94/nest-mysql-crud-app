@@ -1,6 +1,6 @@
 import {
   Column,
-  Entity,
+  Entity, JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -28,6 +28,9 @@ export class ItemEntity {
   @OneToMany(() => ColorEntity, (color) => color.item)
   colors: ColorEntity[];
 
-  @ManyToOne(() => CategoryEntity, (category) => category.items)
+  @ManyToOne(() => CategoryEntity, (category) => category.items, {
+    eager: true,
+  })
+  @JoinColumn({ name: 'categoryId' })
   category: CategoryEntity;
 }

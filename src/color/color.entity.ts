@@ -25,7 +25,7 @@ export class ColorEntity {
   @Column()
   hex: string;
 
-  @ManyToOne(() => ItemEntity, (item) => item.colors, { onDelete: 'CASCADE' })
+  @ManyToOne(() => ItemEntity, (item) => item.colors, { onDelete: 'CASCADE' , eager: true})
   item: ItemEntity;
   //
   @OneToMany(() => SizeEntity, (size) => size.color)

@@ -19,7 +19,7 @@ export class SizeEntity {
   @Column()
   sizeName: number;
 
-  @ManyToOne(() => ColorEntity, (color) => color.sizes, { onDelete: 'CASCADE' })
+  @ManyToOne(() => ColorEntity, (color) => color.sizes, { onDelete: 'CASCADE' , eager: true})
   color: ColorEntity;
 
   @OneToMany(() => HeelEntity, (heel) => heel.size)
