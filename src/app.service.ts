@@ -16,8 +16,7 @@ export class AppService {
         from: data.email, // Senders email address
         subject: data.subject, // Subject line
         text: data.message, // plaintext body
-        html: '<h1>Nova Porudzbina :</h1>' +
-          '<br><b>' + data.name + '</b>', // HTML body content
+        html: '<h1>Nova Porudzbina :</h1>' + '<br><b>' + data.name + '</b>', // HTML body content
       })
       .then((success) => {
         console.log(success);

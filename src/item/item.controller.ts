@@ -13,8 +13,7 @@ import { ItemDto } from './itemDto';
 
 @Controller('item')
 export class ItemController {
-  constructor(private itemService: ItemService) {
-  }
+  constructor(private itemService: ItemService) {}
 
   @Get()
   async showAll() {

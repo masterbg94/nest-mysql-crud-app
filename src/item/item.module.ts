@@ -8,7 +8,9 @@ import { SizeEntity } from '../size/size.entity';
 import { HeelEntity } from '../heel/heel.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ItemEntity, ColorEntity, SizeEntity, HeelEntity])],
+  imports: [
+    TypeOrmModule.forFeature([ItemEntity, ColorEntity, SizeEntity, HeelEntity]),
+  ],
   providers: [ItemService],
   controllers: [ItemController],
 })

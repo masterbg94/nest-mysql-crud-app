@@ -13,6 +13,9 @@ export class HeelEntity {
   @Column()
   heelCount: number;
 
-  @ManyToOne(() => SizeEntity, (size) => size.heel, { onDelete: 'CASCADE' , eager: true})
+  @ManyToOne(() => SizeEntity, (size) => size.heel, {
+    onDelete: 'CASCADE',
+    eager: true,
+  })
   size: SizeEntity;
 }
