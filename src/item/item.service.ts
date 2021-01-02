@@ -13,7 +13,7 @@ export class ItemService {
 
   async getAllItems() {
     return await this.itemRepository.find({
-      relations: ['colors', 'colors.sizes'],
+      relations: ['colors', 'colors.sizes', 'colors.sizes.heel'],
     });
   }
 

@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { HeelService } from './heel.service';
 import { HeelDto } from './heelDto';
+import { SizeDto } from '../size/sizeDto';
 
 @Controller('heel')
 export class HeelController {
@@ -31,13 +32,13 @@ export class HeelController {
     };
   }
 
-  @Put('/decrement/:id')
-  async decrementHeelCount(
+  @Get('/decrement/:id')
+  async decrementSizeCount(
     @Param('id') id: number,
     @Body() data: Partial<HeelDto>,
   ) {
-    const h = await this.heelService.getHeelForId(id);
-    data.heelCount = h.heelCount - 1;
+    const heel = await this.heelService.getHeelForId(id);
+    data.heelCount = heel.heelCount - 1;
     return {
       statusCode: HttpStatus.CREATED,
       message: 'Heel decremented successfully',

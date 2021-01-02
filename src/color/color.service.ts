@@ -12,7 +12,7 @@ export class ColorService {
   ) {}
 
   async getAllColors() {
-    return await this.colorRepository.find({ relations: ['sizes'] });
+    return await this.colorRepository.find({ relations: ['sizes', 'sizes.heel'] });
   }
 
   async getColorForId(categoryId) {

@@ -1,5 +1,5 @@
 export interface HeelDto {
   id: number;
-  heelName: string;
+  heelName: number;
   heelCount: number;
 }

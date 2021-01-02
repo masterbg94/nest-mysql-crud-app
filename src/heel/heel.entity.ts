@@ -8,7 +8,7 @@ export class HeelEntity {
   id: number;
 
   @Column()
-  heelName: string;
+  heelName: number;
 
   @Column()
   heelCount: number;
