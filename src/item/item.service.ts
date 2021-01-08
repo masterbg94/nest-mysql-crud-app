@@ -19,7 +19,7 @@ export class ItemService {
 
   async getWithId(id) {
     return await this.itemRepository.findOne(id, {
-      relations: ['colors', 'colors.sizes'],
+      relations: ['colors', 'colors.sizes', 'colors.sizes.heel'],
     });
   }
 
