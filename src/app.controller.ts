@@ -20,4 +20,15 @@ export class AppController {
     //   data: this.appService.example(data),
     // };
   }
+
+  @Post('/sendorder')
+  sendOrder(@Body() data: any): any {
+    return this.appService.sendOrderService(data);
+    // radi ovakav response
+    // return {
+    //   statusCode: HttpStatus.CREATED,
+    //   message: 'Mail send',
+    //   data: this.appService.example(data),
+    // };
+  }
 }
