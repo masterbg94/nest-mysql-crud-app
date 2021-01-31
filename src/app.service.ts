@@ -14,7 +14,7 @@ export class AppService {
       .sendMail({
         to: 'nmilinkovic3@gmail.com', // List of receivers email address
         from: data.email, // Senders email address
-        subject: 'Testing LaPista mailer ✔', // Subject line
+        subject: data.subject, // Subject line
         text: data.message, // plaintext body
         // html: '<h1>Nova Porudzbina :</h1>' + '<br><b>' + data.name + '</b>', // HTML body content
         template: 'index',
@@ -27,18 +27,20 @@ export class AppService {
       })
       .then((success) => {
         console.log(success);
+        return true;
       })
       .catch((err) => {
         console.log(err);
+        return false;
       });
   }
 
   async sendOrderService(data) {
     await this.mailerService
       .sendMail({
-        to: 'nmilinkovic3@gmail.com', // List of receivers email address
+        to: ['nmilinkovic3@gmail.com', data.email], // List of receivers email address
         from: data.email, // Senders email address
-        subject: 'Testing LaPista order!', // Subject line
+        subject: data.subject, // Subject line
         text: data.message, // plaintext body
         // html: '<h1>Nova Porudzbina :</h1>' + '<br><b>' + data.name + '</b>', // HTML body content
         template: 'index2',
@@ -46,7 +48,7 @@ export class AppService {
           // Data to be sent to template engine.
           // code: 'cf1a3f828287',
           // username: 'john doe',
-          data: data,
+          ite: data,
         },
       })
       .then((success) => {

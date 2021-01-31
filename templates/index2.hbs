@@ -305,7 +305,7 @@
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <td class="logo" style="text-align: left;">
-                                <h1><a href="#">Shop</a></h1>
+                                <h1><a href="#">Lapista shop</a></h1>
                             </td>
                         </tr>
                     </table>
@@ -317,8 +317,11 @@
                         <tr>
                             <td style="padding: 0 2.5em; text-align: left;">
                                 <div class="text">
-                                    <h2>Ronald your shopping cart misses you</h2>
-                                    <h3>Amazing deals, updates, interesting news right in your inbox</h3>
+                                    <h2>Postovani , {{this.ite.firstName}} {{this.ite.lastName}} </h2>
+                                    <h2>Uspesno ste izvrsili porucivanje na adresu {{this.ite.address}} , {{this.ite.addressUnit}}</h2>
+                                    <h3>U nastavku je kratak pregled porucenih informacija proizvoda</h3>
+                                    <h3>Vas email:{{this.ite.email}}</h3>
+                                    <h3>Vas telefon:{{this.ite.phone}}</h3>
                                 </div>
                             </td>
                         </tr>
@@ -328,42 +331,49 @@
             <tr>
                 <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                        <th width="80%" style="text-align:left; padding: 0 2.5em; color: #000; padding-bottom: 20px">Item</th>
-                        <th width="20%" style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Price</th>
+                        <th width="70%" style="text-align:left; padding: 0 2.5em; color: #000; padding-bottom: 20px">Item</th>
+                        <th width="30%" style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Price</th>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                        <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
-                            <div class="product-entry">
-                                <img src="images/prod-1.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin-bottom: 20px; display: block;">
-                                <div class="text">
-                                    <h3>Analog Wrest Watch</h3>
-                                    <span>Small</span>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">
-                            <span class="price" style="color: #000; font-size: 20px;">$120</span>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                        <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
-                            <div class="product-entry">
-                                <img src="images/prod-2.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin-bottom: 20px; display: block;">
-                                <div class="text">
-                                    <h3>Analog Wrest Watch</h3>
-                                    <span>Small</span>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">
-                            <span class="price" style="color: #000; font-size: 20px;">$120</span>
-                        </td>
-                    </tr>
+
+
+                        {{#each this.ite.order}}
+                            <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+                                <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
+                                    <div class="product-entry">
+                                        <img src="{{this.ite}}" alt=""
+                                             style="width: 100px; max-width: 600px; height: auto; margin-bottom: 20px; display: block;">
+                                        <div class="text">
+                                            <h3>{{this.name}}</h3>
+                                            <span>{{item.price}}</span>
+                                            <p>A small river named Duden flows by their place and supplies it with the
+                                                necessary regelialia.</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">
+                                    <span class="price" style="color: #000; font-size: 20px;">{{this.price}}</span>
+                                </td>
+                            </tr>
+                        {{/each}}
+
+                    <!--                    <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">-->
+<!--                        <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">-->
+<!--                            <div class="product-entry">-->
+<!--                                <img src="images/prod-2.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin-bottom: 20px; display: block;">-->
+<!--                                <div class="text">-->
+<!--                                    <h3>Analog Wrest Watch</h3>-->
+<!--                                    <span>Small</span>-->
+<!--                                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                        <td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">-->
+<!--                            <span class="price" style="color: #000; font-size: 20px;">$120</span>-->
+<!--                        </td>-->
+<!--                    </tr>-->
                     <tr>
                         <td valign="middle" style="text-align:left; padding: 1em 2.5em;">
-                            <p><a href="#" class="btn btn-primary">Continur your order</a></p>
+                            <p><a href="https://lapista.rs/" class="btn btn-primary">Vratite se na sajt</a></p>
                         </td>
                     </tr>
                 </table>
@@ -379,8 +389,8 @@
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td style="text-align: left; padding-right: 10px;">
-                                            <h3 class="heading">About</h3>
-                                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                            <h3 class="heading">La Pista</h3>
+                                            <p>Lapista lorem ipsum,Lapista lorem ipsum,Lapista lorem ipsum,Lapista lorem ipsum,Lapista lorem ipsum</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -389,10 +399,12 @@
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-                                            <h3 class="heading">Contact Info</h3>
+                                            <h3 class="heading">Kontakt info</h3>
                                             <ul>
-                                                <li><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                                <li><span class="text">+2 392 3929 210</span></a></li>
+
+
+                                                <li><span class="text">Djordja Stanojevića 11dj , lokal 3 <br> Zgrada Jorgovan , Belville</span></li>
+                                                <li><span class="text">+381 63 810 56 18</span></a></li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -402,12 +414,12 @@
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td style="text-align: left; padding-left: 10px;">
-                                            <h3 class="heading">Useful Links</h3>
+                                            <h3 class="heading">Linkovi ka sajtu</h3>
                                             <ul>
-                                                <li><a href="#">Home</a></li>
-                                                <li><a href="#">Account</a></li>
-                                                <li><a href="#">Wishlist</a></li>
-                                                <li><a href="#">Order</a></li>
+                                                <li><a href="https://lapista.rs/">Pocetna</a></li>
+                                                <li><a href="https://lapista.rs/about">O nama</a></li>
+                                                <li><a href="https://lapista.rs/products">Cipele</a></li>
+                                                <li><a href="https://lapista.rs/contact">Kontakt</a></li>
                                             </ul>
                                         </td>
                                     </tr>
