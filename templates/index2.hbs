@@ -317,11 +317,12 @@
                         <tr>
                             <td style="padding: 0 2.5em; text-align: left;">
                                 <div class="text">
-                                    <h2>Postovani , {{this.ite.firstName}} {{this.ite.lastName}} </h2>
-                                    <h2>Uspesno ste izvrsili porucivanje na adresu {{this.ite.address}} , {{this.ite.addressUnit}}</h2>
-                                    <h3>U nastavku je kratak pregled porucenih informacija proizvoda</h3>
-                                    <h3>Vas email:{{this.ite.email}}</h3>
-                                    <h3>Vas telefon:{{this.ite.phone}}</h3>
+                                    <h3 style="padding: 0;margin: 0">Poštovani , {{this.ite.firstName}} {{this.ite.lastName}} </h3>
+                                    <h4 style="padding: 0;margin: 0">Uspešno ste izvršili poručivanje na adresu:  {{this.ite.address}} , {{this.ite.addressUnit}}</h4>
+<!--                                    <h3>U nastavku je kratak pregled porucenih informacija proizvoda</h3>-->
+                                    <p style="padding: 0;margin: 0">Vas email:{{this.ite.email}}</p>
+                                    <p style="padding: 0;margin: 0">Vas telefon:{{this.ite.phone}}</p>
+                                    <p style="padding: 0;margin: 0;font-size: 12px">Ukoliko podatci nisu ispravni molimo kontaktirajte nas za izmenu informacija</p>
                                 </div>
                             </td>
                         </tr>
@@ -331,26 +332,26 @@
             <tr>
                 <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                        <th width="70%" style="text-align:left; padding: 0 2.5em; color: #000; padding-bottom: 20px">Item</th>
-                        <th width="30%" style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Price</th>
+                        <th width="70%" style="text-align:left; padding: 0 2.5em; color: #000; padding-bottom: 20px">Stavka</th>
+                        <th width="30%" style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Cena</th>
                     </tr>
 
 
-                        {{#each this.ite.order}}
+                        {{#each this.ite.data}}
                             <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                                <td valign="middle" width="80%" style="text-align:left; padding: 0 2.5em;">
-                                    <div class="product-entry">
-                                        <img src="{{this.ite}}" alt=""
+                                <td valign="middle" width="80%" style="text-align:left; padding: 0 5px;">
+                                    <div class="product-entry" style="width: 100%">
+                                        <img src="{{this.image}}" alt=""
                                              style="width: 100px; max-width: 600px; height: auto; margin-bottom: 20px; display: block;">
                                         <div class="text">
-                                            <h3>{{this.name}}</h3>
-                                            <span>{{item.price}}</span>
-                                            <p>A small river named Duden flows by their place and supplies it with the
-                                                necessary regelialia.</p>
+                                            <h3>Naziv: {{this.name}}</h3>
+                                            <p>Opis: {{this.description}}</p>
+                                            <p>Veličina: {{this.size}}</p>
+                                            <p>Visina: {{this.heel.heelName}} cm</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">
+                                <td valign="middle" width="20%" style="text-align:right; padding: 0 2.5em;">
                                     <span class="price" style="color: #000; font-size: 20px;">{{this.price}}</span>
                                 </td>
                             </tr>
@@ -373,7 +374,7 @@
 <!--                    </tr>-->
                     <tr>
                         <td valign="middle" style="text-align:left; padding: 1em 2.5em;">
-                            <p><a href="https://lapista.rs/" class="btn btn-primary">Vratite se na sajt</a></p>
+                            <p><a href="https://lapista.rs/" class="btn btn-primary">Nastavi na sajt</a></p>
                         </td>
                     </tr>
                 </table>
@@ -390,7 +391,7 @@
                                     <tr>
                                         <td style="text-align: left; padding-right: 10px;">
                                             <h3 class="heading">La Pista</h3>
-                                            <p>Lapista lorem ipsum,Lapista lorem ipsum,Lapista lorem ipsum,Lapista lorem ipsum,Lapista lorem ipsum</p>
+                                            <p style="font-size: 12px">Luksuzno ručno izrađene kreacije, ponosno napravljene u Italiji, spremne da vašoj odeći daju dodir glamura čineći vaš stil jedinstvenim.</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -403,8 +404,8 @@
                                             <ul>
 
 
-                                                <li><span class="text">Djordja Stanojevića 11dj , lokal 3 <br> Zgrada Jorgovan , Belville</span></li>
-                                                <li><span class="text">+381 63 810 56 18</span></a></li>
+                                                <li><span class="text" style="font-size: 10px;">Djordja Stanojevića 11dj , lokal 3 <br> Zgrada Jorgovan , Belville</span></li>
+                                                <li><span class="text" style="font-size: 12px;">+381 63 810 56 18</span></a></li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -430,9 +431,9 @@
                 </td>
             </tr><!-- end: tr -->
             <tr>
-                <td class="bg_white" style="text-align: center;">
-                    <p>No longer want to receive these email? You can <a href="#" style="color: rgba(0,0,0,.8);">Unsubscribe here</a></p>
-                </td>
+<!--                <td class="bg_white" style="text-align: center;">-->
+<!--                    <p>No longer want to receive these email? You can <a href="#" style="color: rgba(0,0,0,.8);">Unsubscribe here</a></p>-->
+<!--                </td>-->
             </tr>
         </table>
 
