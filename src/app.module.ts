@@ -40,8 +40,8 @@ import { HeelModule } from './heel/heel.module';
           ignoreTLS: false,
           secure: false, // upgrade later with STARTTLS
           auth: {
-            user: 'nmilinkovic3@gmail.com',
-            pass: 'Master2019',
+            user: 'web.lapista@gmail.com',
+            pass: 'Lapista2020',
           },
         },
         template: {
