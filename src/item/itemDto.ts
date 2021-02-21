@@ -6,4 +6,5 @@ export interface ItemDto {
   price: number;
   colors: any;
   categoryId: number;
+  sale: number;
 }
