@@ -43,6 +43,9 @@ import { HeelModule } from './heel/heel.module';
             user: 'web.lapista@gmail.com',
             pass: 'Lapista2020',
           },
+          tls: {
+            rejectUnauthorized: false
+          }
         },
         template: {
           dir: process.cwd() + '/templates/',
