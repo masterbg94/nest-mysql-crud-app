@@ -13,8 +13,8 @@ export class SizeEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  sizeCount: number;
+  // @Column()
+  // sizeCount: number;
 
   @Column()
   sizeName: number;

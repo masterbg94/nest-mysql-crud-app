@@ -37,7 +37,7 @@ export class SizeController {
     @Body() data: Partial<SizeDto>,
   ) {
     const sizeCount = await this.sizeService.getAllItemsForId(id);
-    data.sizeCount = sizeCount.sizeCount - 1;
+    // data.sizeCount = sizeCount.sizeCount - 1;
     return {
       statusCode: HttpStatus.CREATED,
       message: 'Size decremented successfully',
