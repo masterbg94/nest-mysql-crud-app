@@ -41,7 +41,7 @@ import { HeelModule } from './heel/heel.module';
           secure: false, // upgrade later with STARTTLS
           auth: {
             user: 'web.lapista@gmail.com',
-            pass: 'lapista2020',
+            pass: '82Lapista2020',
           },
           tls: {
             rejectUnauthorized: false
