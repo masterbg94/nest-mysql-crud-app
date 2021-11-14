@@ -23,6 +23,14 @@ export class ItemService {
     });
   }
 
+  /* U Rutama (Kontroleru) mora prvo da se ucita sve pre /:param jer u suprotnom dolazi do problema, nest ocekuje param */
+  async getNewItems() {
+    return await this.itemRepository.find({
+      where: { isnew: 1 },
+      relations: ['colors', 'colors.sizes', 'colors.sizes.heel'],
+    });
+  }
+
   async getAllWithDetails() {
     const itemsWithDetails = await this.itemRepository
       .createQueryBuilder('items')

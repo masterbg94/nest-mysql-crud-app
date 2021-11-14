@@ -19,15 +19,7 @@ export class ItemController {
   async showAll() {
     return {
       statusCode: HttpStatus.OK,
-      data: await this.itemService.getAllItems(),
-    };
-  }
-
-  @Get('/:id')
-  async showItemWithId(@Param() params) {
-    return {
-      statusCode: HttpStatus.OK,
-      data: await this.itemService.getWithId(params.id),
+      data: await this.itemService.getNewItems(),
     };
   }
 
@@ -36,6 +28,23 @@ export class ItemController {
     return {
       statusCode: HttpStatus.OK,
       data: await this.itemService.getAllWithDetails(),
+    };
+  }
+
+  /* Mora da ide pre /:param da bi ga nestJs citao */
+  @Get('/new')
+  async showNewItems() {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.itemService.getNewItems(),
+    };
+  }
+
+  @Get('/:id')
+  async showItemWithId(@Param() params) {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.itemService.getWithId(params.id),
     };
   }
 

@@ -29,6 +29,9 @@ export class ItemEntity {
   @Column()
   sale: number;
 
+  @Column()
+  isnew: number;
+
   @OneToMany(() => ColorEntity, (color) => color.item)
   colors: ColorEntity[];
 
