@@ -19,7 +19,7 @@ export class ItemController {
   async showAll() {
     return {
       statusCode: HttpStatus.OK,
-      data: await this.itemService.getNewItems(),
+      data: await this.itemService.getAllItems(),
     };
   }
 
