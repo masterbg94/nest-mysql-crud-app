@@ -17,8 +17,8 @@ export class ColorService {
     });
   }
 
-  async getColorForId(categoryId) {
-    return await this.colorRepository.findOne(categoryId);
+  async getColorForId(colorId) {
+    return await this.colorRepository.findOne(colorId);
   }
 
   async create(data: ColorDto) {
