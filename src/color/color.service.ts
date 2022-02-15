@@ -17,8 +17,11 @@ export class ColorService {
     });
   }
 
+  /* Fix za vracanje boje u single color by id { relations: ['sizes', 'sizes.heel'] } */
   async getColorForId(colorId) {
-    return await this.colorRepository.findOne(colorId);
+    return await this.colorRepository.findOne(colorId,{
+      relations: ['sizes', 'sizes.heel']
+    });
   }
 
   async create(data: ColorDto) {

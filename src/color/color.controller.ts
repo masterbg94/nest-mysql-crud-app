@@ -23,20 +23,20 @@ export class ColorController {
     };
   }
 
-  @Get(':id')
-  async getColorWithId(@Param() params) {
-    return {
-      statusCode: HttpStatus.OK,
-      data: await this.colorService.getColorForId(params.id),
-    };
-  }
-
   @Post()
   async create(@Body() data: ColorDto) {
     return {
       statusCode: HttpStatus.CREATED,
       message: 'Color added successfully',
       data: await this.colorService.create(data),
+    };
+  }
+
+  @Get(':id')
+  async getColorWithId(@Param() params) {
+    return {
+      statusCode: HttpStatus.OK,
+      data: await this.colorService.getColorForId(params.id),
     };
   }
 
